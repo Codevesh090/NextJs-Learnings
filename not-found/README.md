@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Now,we understand about Not found Page.
 
-## Getting Started
+1. ------Unknown(Not-Found Route) Routes
+Now,will see ki agar user ne kisi ese route par hit kar diya jo humne banaya hi nahi hai , toh kya hoga ?
+Toh is condition ko tackle karne ke liye hum do kaam kar sakte hai:
+1st. Hum kuch nahi karenge toh NextJs apne aap 404 page dikha dega.
+2nd. But if we want to show a custom Not-Found page then what we do is that:
+  ->   app folder me <not-found.tsx> folder bana do and usko craft kar do jaisa bhi custom page chahiye tumhe.
+  ->   Ab yeh chalta yese hai ki pehle toh layout.tsx chalega and then its children . So,Ab system check karega ki childrens me konsa chalaha hai according to the route , toh use koi nahi milega , toh koi nahi milne par system yeh "not-found" waali file run kar dega and we see page not find on the screen .Yaani if we hit any endpoint that we did not made then NextJs apne aap hi yeh not-found.tsx run kar deta hai.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+//Important POINT
+🟦 File and Folder Conventions
+NotFound file ka naam hamesha <not-found.tsx> hi hota hai compulsory hai .
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+2. We can also trigger not found page at any specific event or at any specific condition.
+  Like : WHAT WE DID
+  Humne [complaintId] ke folder me uske <page.tsx> me likha ki If the complaintId>1000 then call the 
+  notfound() function . Now hota kya hai , ki NextJs me jab bhi hume kisi particular event par not found 
+  page dikhana hota hai .Toh hum notFound function jo hume NextJs deta hai uska use karte hai .Yeh kya karta hai ki jab yeh trigger hota hai , toh yeh apne nearest not-found.tsx ko find karne ki koshish karta hai.And ise jo bhi sabse nearest not-found.tsx dikhai deta hai use yeh run kar deta hai .
 
-To learn more about Next.js, take a look at the following resources:
+🟦  Yaani we can trigger not-found at any specific event and NextJs will find nearest not-found page and run it .Go and see in page.tsx of [complaintId] . How we did this .
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. If we want to make the not-found page more specific to the route , we can do like this.
+   LIKE:
+   Hume usePathname hook ka use kiya , jo hume url paath deta hai 
+   Use humne store kiya , break karke and also we use "useClient" as we are using hook and hook is Client component.
+   And made the not-found page dynamic which changes with the route.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🟦   Go and see in not-found.tsx page of [complaintId] How we did it .
+
+
+
+
+//To test
+Go and run <bun run dev>
+Now hit this route /products/3/complaints/1300
+You will see that because [complaintId]>1000 , so not-found page triggered and also it is showing dynamic not found page .

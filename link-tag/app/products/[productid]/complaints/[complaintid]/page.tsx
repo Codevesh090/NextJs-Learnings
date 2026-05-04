@@ -1,14 +1,9 @@
-import { notFound } from "next/navigation";
-
 export default async function ProductAndComplaints({
   params,
 }: {
   params: Promise<{ productid: string; complaintid: string }>;
 }) {
   const { productid, complaintid } = await params;
-  if(parseInt(complaintid)>1000){
-    notFound();
-  }
   return (
     <div>
       <h1 className="text-5xl text-pink-600">
@@ -17,8 +12,3 @@ export default async function ProductAndComplaints({
     </div>
   );
 }
-
-
-
-//we can trigger not found page by our own at any event or condition.
-//we can customize not found page for each.

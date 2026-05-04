@@ -207,7 +207,9 @@ Two important things to remember :
 
 
 
-------Multiple Layouts
+------Nested layouts
+Layouts are used to make that part of a website that will be consistent throughout yaani jo fixed rehne waala hai like Header and Footer etc and only children in it changes .
+
 Now,ek aur Important baat yeh hai ki hum <layout.tsx> ko bhi kahi bhi bana sakte hai and usse hoga kya samajhte hai .
 
 I Case.
@@ -308,3 +310,14 @@ hai . For testing I wrote "Devesh" just do <cd file-based-routing> and then <npm
 And whatever we write in this "description" is act as like "metaTag" . See what is meta tag ㊙️
 
 ----------------------------------------------------------------------------------------------------------
+
+SOME IMPORTANT CONCEPTS AND POINTS.
+1. Public folder
+Agar hum ek folder banate hai like /dashboard and uske andar page.tsx banate hai , tab /dashboard public hota hai and hum use broswer par /dashboard karke open kar paate hai but if let say we did /dashboard and in that folder we didn't made page.tsx instead made line.tsx then /dashboard is not accessible on browser .
+
+2. Do "default export" only in page.tsx not Name export .
+
+3. Private folder
+Agar hum kisi folder ke naame ko is convention se likhe _filename yaani underscore Filename then wo folder ek private folder hota hai yaani wo folder or page browser par open nahi hota hai yaani if we try doing like /_filename then it does not open that private folder or page .It is used for the pages that we want to make but don't want to do it public,then we use this .
+
+4. But if let say we actually want a underscore in our URL , use "%5F" instead .That's just the URL encoded version of a underscore .
