@@ -1,5 +1,5 @@
-export default async function GET(){
-  return new Response("Hello world")
+export async function GET() {
+  return new Response("Hello world");
 }
 
 
@@ -11,3 +11,12 @@ export default async function GET(){
 // Jisse clean and scalable structure banta hai .
 
 //and also one more convention is that function name in route.ts is always either be "GET" , "POST" ,"PATCH" , "DELETE" , "HEAD" , "PUT" , "OPTIONS" .
+//also don't do default export here .Always named export like here we did with name GET.
+
+//To try
+//Go to thunderclient
+//Put http://localhost:3000/hello/api and type of request to "GET"
+//and when run then you will see in resposne you will get "Hello world" 
+
+
+//-----------------------------This is the first page , starting point to understand Route Handlers.
