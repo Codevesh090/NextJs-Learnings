@@ -50,7 +50,7 @@ Jaise ,
 
 2. Response Headers
 They are sent back from the server to the client .They provide info about the Server and the data being sent in the response .
-Like Content-Type header comes under Response header.
+Like Content-Type header,Cookies etc.. comes under Response header.
 
 "Content-Type" header indicates the media type of the response .
 It tells the client what the data type of the returned content is such as text/html for HTML documents and like application/json for JSON data etc..
